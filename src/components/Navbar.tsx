@@ -27,8 +27,7 @@ function Navbar() {
           <Box
             sx={{
               padding: 1,
-              paddingLeft: 6,
-              paddingRight: 6,
+              paddingX: 6,
               background: "#999",
             }}
           >

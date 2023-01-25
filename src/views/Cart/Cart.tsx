@@ -1,12 +1,14 @@
-import React from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
+import Navbar from "../../components/Navbar";
+import Categories from "./Categories";
 
 const Cart = () => {
   return (
-    <Container maxWidth="xl">
-      <Typography> Your cart </Typography>
-    </Container>
+    <>
+      <Navbar />
+      <Categories />
+    </>
   );
 };
 
