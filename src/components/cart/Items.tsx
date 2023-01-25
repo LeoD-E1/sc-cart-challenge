@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import Item from "./Item";
+import ItemProduct from "./ItemProduct";
 
 const Items = () => {
-  const { products } = useContext(CartContext);
+  const { products, packs } = useContext(CartContext);
   console.log("🚀 ~ file: Items.tsx:9 ~ Items ~ products", products);
 
   return (
@@ -15,12 +15,14 @@ const Items = () => {
       </Typography>
       <Box
         sx={{
-          display: "flex",
-          justifyContent: "space-between",
           background: "#ff0",
+          overflowY: "auto",
+          maxHeight: "70vh",
         }}
       >
-        <Item />
+        {products.map((product) => (
+          <ItemProduct key={product.id} product={product} />
+        ))}
       </Box>
     </>
   );

@@ -1,8 +1,14 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import CardMedia from "@mui/material/CardMedia";
+import { Product } from "../../types/cart";
 
-const Item = () => {
+type ItemProductType = {
+  key: number;
+  product: Product;
+};
+
+const ItemProduct: React.FC<ItemProductType> = ({ product }) => {
   return (
     <Box width="100%" display="flex" justifyContent="space-between">
       <Box display="flex">
@@ -17,4 +23,4 @@ const Item = () => {
   );
 };
 
-export default Item;
+export default ItemProduct;

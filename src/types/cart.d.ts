@@ -10,11 +10,11 @@ export interface Pack {
   id: number;
   name: string;
   price: number;
-  products: Product[];
+  product_ids: number[];
 }
 
 export interface Cart {
-  elements: Product[] | Pack[] | (Pack[] & Product[]);
+  elements: (Product & Pack)[];
 }
 
 export interface CartContextType {
