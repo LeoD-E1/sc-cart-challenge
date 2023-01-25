@@ -1,7 +1,9 @@
 import React, { createContext, useState } from "react";
 import { CartContextType, Product, Pack } from "../types/cart";
 
-export const CartContext = createContext<CartContextType | null>(null);
+export const CartContext = createContext<CartContextType>(
+  {} as CartContextType
+);
 
 const CartProvider = (props: any) => {
   const [products, setProducts] = useState<Product[]>([

@@ -1,16 +1,15 @@
-import { useState } from "react";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 
 const Categories = () => {
-  const [categories, setCategories] = useState([
+  const categories = [
     "All products",
     "Packaging",
     "Drinkware",
     "Apparel",
     "Backpacks",
-  ]);
+  ];
   return (
     <Box width="100%" sx={{ backgroundColor: "#E6E8E9" }}>
       <Container maxWidth="xl">
