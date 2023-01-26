@@ -9,6 +9,7 @@ const CartProvider = (props: any) => {
   const [products, setProducts] = useState<Product[]>([
     {
       id: 0,
+      quantity: 1,
       name: "T-shirt",
       price: 13,
       img_url:
@@ -17,6 +18,7 @@ const CartProvider = (props: any) => {
     },
     {
       id: 1,
+      quantity: 1,
       name: "Camera ESX-342",
       price: 130,
       img_url:
@@ -25,6 +27,7 @@ const CartProvider = (props: any) => {
     },
     {
       id: 2,
+      quantity: 1,
       name: "Camera ESX-342 Lens",
       price: 150,
       img_url:
@@ -33,6 +36,7 @@ const CartProvider = (props: any) => {
     },
     {
       id: 3,
+      quantity: 1,
       name: "Titanium watch",
       price: 1300,
       img_url:
@@ -44,6 +48,7 @@ const CartProvider = (props: any) => {
   const [packs, setPacks] = useState<Pack[]>([
     {
       id: 0,
+      quantity: 1,
       name: "My Christmas Package",
       price: 120,
       product_ids: [0, 1, 2],
@@ -52,6 +57,8 @@ const CartProvider = (props: any) => {
 
   const removeProduct = (product: Product): void => {};
   const removePack = (product: Pack): void => {};
+  const editQuantityProduct = (productId: number): void => {};
+  const editQuantityPack = (packId: number): void => {};
 
   return (
     <CartContext.Provider

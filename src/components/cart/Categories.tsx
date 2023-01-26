@@ -8,6 +8,7 @@ const Categories = () => {
     "Packaging",
     "Drinkware",
     "Apparel",
+    "Notebooks",
     "Backpacks",
   ];
   return (
@@ -17,11 +18,12 @@ const Categories = () => {
           {categories.map((category) => (
             <Typography
               key={category}
-              color="#999"
-              marginRight={5}
+              lineHeight="16px"
+              fontWeight={400}
+              color="#535C67"
+              marginRight={3}
               paddingY={3}
-              letterSpacing={0.5}
-              fontSize="14px"
+              fontSize="15px"
             >
               {category}
             </Typography>

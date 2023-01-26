@@ -6,16 +6,16 @@ import ItemProduct from "./ItemProduct";
 
 const Items = () => {
   const { products, packs } = useContext(CartContext);
-  console.log("🚀 ~ file: Items.tsx:9 ~ Items ~ products", products);
-
   return (
     <>
-      <Typography fontSize={"24px"} fontWeight={"700"}>
-        Your cart
-      </Typography>
+      <Box display="flex" alignItems="center">
+        <Typography fontSize={"24px"} fontWeight={"700"}>
+          Your cart
+        </Typography>
+        <Typography> ({products.length + packs.length})</Typography>
+      </Box>
       <Box
         sx={{
-          background: "#ff0",
           overflowY: "auto",
           maxHeight: "70vh",
         }}

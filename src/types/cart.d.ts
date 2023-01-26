@@ -4,6 +4,7 @@ export interface Product {
   price: number;
   img_url: string;
   category: string[];
+  quantity: number;
 }
 
 export interface Pack {
@@ -11,6 +12,7 @@ export interface Pack {
   name: string;
   price: number;
   product_ids: number[];
+  quantity: number;
 }
 
 export interface Cart {
