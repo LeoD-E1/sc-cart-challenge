@@ -50,8 +50,7 @@ const CartProvider = (props: any) => {
       id: 0,
       quantity: 1,
       name: "My Christmas Package",
-      price: 120,
-      product_ids: [0, 1, 2],
+      product_ids: [2, 3, 0, 1],
     },
   ]);
 
@@ -64,7 +63,17 @@ const CartProvider = (props: any) => {
   };
 
   const retrieveProdsInPack = (ids: number[]) => {
-    const retrieved = products.filter((p) => p.id in ids);
+    console.log(
+      "🚀 ~ file: CartContext.tsx:67 ~ retrieveProdsInPack ~ ids",
+      ids
+    );
+    const retrieved = products.filter((p) => {
+      return ids.includes(p.id);
+    });
+    console.log(
+      "🚀 ~ file: CartContext.tsx:68 ~ retrieveProdsInPack ~ retrieved",
+      retrieved
+    );
     return retrieved;
   };
 

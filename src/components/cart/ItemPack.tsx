@@ -15,6 +15,11 @@ type ItemPackType = {
 
 const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
   const [products, setProducts] = useState<Product[]>([]);
+  const price = products.reduce(
+    (acc: number, curr: Product) => acc + curr.price,
+    0
+  );
+  console.log("🚀 ~ file: ItemPack.tsx:19 ~ price", price);
 
   const retrieve = (ids: number[]) => {
     const products: Product[] = retrieveItems(ids);
@@ -38,7 +43,16 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
         <Box
           component="div"
           sx={{ width: 120, height: 120, backgroundColor: "#999" }}
-        ></Box>
+        >
+          {products.map((product) => (
+            <img
+              key={product.id}
+              src={product.img_url}
+              alt=""
+              style={{ width: "40px" }}
+            />
+          ))}
+        </Box>
         <CardContent
           sx={{
             paddingY: 0,
@@ -53,11 +67,15 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
           <Typography fontSize="16px" fontWeight={700}>
             Quantity: {pack.quantity}
           </Typography>
-          {/* <ul>
-            {pack.category.map((cat) => (
-              <li key={cat}>{cat}</li>
+          <ul>
+            {products.map((product: Product) => (
+              <li key={product.id}>
+                {product.category.map((category: string) => (
+                  <span key={category}>{category.concat(", ")}</span>
+                ))}
+              </li>
             ))}
-          </ul> */}
+          </ul>
           <Box display="flex">
             <Button size="small" onClick={() => remove(pack)}>
               <DeleteForeverOutlinedIcon
@@ -77,10 +95,10 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
           lineHeight="16px"
           color="#091625"
         >
-          ${pack.price}
+          ${price}
         </Typography>
         <Typography fontSize="16px" fontWeight={700}>
-          Total: ${pack.quantity * pack.price}
+          Total: ${pack.quantity * price}
         </Typography>
       </Box>
     </Box>
