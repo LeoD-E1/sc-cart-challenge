@@ -63,6 +63,11 @@ const CartProvider = (props: any) => {
     setPacks(packs.filter((p) => p.id !== pack.id));
   };
 
+  const retrieveProdsInPack = (ids: number[]) => {
+    const retrieved = products.filter((p) => p.id in ids);
+    return retrieved;
+  };
+
   const editQuantityProduct = (productId: number): void => {};
   const editQuantityPack = (packId: number): void => {};
 
@@ -73,6 +78,7 @@ const CartProvider = (props: any) => {
         packs,
         removePack,
         removeProduct,
+        retrieveProdsInPack,
       }}
     >
       {props.children}

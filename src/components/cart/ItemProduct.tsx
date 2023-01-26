@@ -20,7 +20,7 @@ const ItemProduct: React.FC<ItemProductType> = ({ product, remove }) => {
       display="flex"
       justifyContent="space-between"
       marginY={2}
-      borderBottom="1px solid #EBEBEB"
+      borderBottom="1px solid #CED0D3"
       paddingBottom={3}
     >
       <Box display="flex">

@@ -3,9 +3,11 @@ import { CartContext } from "../../context/CartContext";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import ItemProduct from "./ItemProduct";
+import ItemPack from "./ItemPack";
 
 const Items = () => {
-  const { products, packs, removeProduct } = useContext(CartContext);
+  const { products, packs, removeProduct, retrieveProdsInPack, removePack } =
+    useContext(CartContext);
   return (
     <>
       <Box display="flex" alignItems="center">
@@ -20,6 +22,14 @@ const Items = () => {
           maxHeight: "70vh",
         }}
       >
+        {packs.map((pack) => (
+          <ItemPack
+            key={pack.id}
+            remove={removePack}
+            pack={pack}
+            retrieveItems={retrieveProdsInPack}
+          />
+        ))}
         {products.map((product) => (
           <ItemProduct
             key={product.id}

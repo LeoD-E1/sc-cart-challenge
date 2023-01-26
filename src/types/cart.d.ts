@@ -24,4 +24,5 @@ export interface CartContextType {
   packs: Pack[];
   removeProduct: (product: Product) => void;
   removePack: (pack: Pack) => void;
+  retrieveProdsInPack: (ids: number[]) => Product[];
 }
