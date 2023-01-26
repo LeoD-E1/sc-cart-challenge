@@ -5,15 +5,14 @@ import { Product } from "../../types/cart";
 import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import RemoveItem from "./RemoveItem";
-import EditQuantity from "../EditQuantity";
+import EditQuantity from "./EditQuantity";
 
 type ItemProductType = {
   key: number;
-  remove: (product: Product) => void;
   product: Product;
 };
 
-const ItemProduct: React.FC<ItemProductType> = ({ product, remove }) => {
+const ItemProduct: React.FC<ItemProductType> = ({ product }) => {
   return (
     <Box
       width="100%"

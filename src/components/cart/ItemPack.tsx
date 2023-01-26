@@ -5,16 +5,15 @@ import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import RemoveItem from "./RemoveItem";
 import EditItem from "./EditItem";
-import EditQuantity from "../EditQuantity";
+import EditQuantity from "./EditQuantity";
 
 type ItemPackType = {
   key: number;
-  remove: (pack: Pack) => void;
   retrieveItems: (ids: number[]) => Product[];
   pack: Pack;
 };
 
-const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
+const ItemPack: React.FC<ItemPackType> = ({ pack, retrieveItems }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const price = products.reduce(
     (acc: number, curr: Product) => acc + curr.price,

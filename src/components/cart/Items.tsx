@@ -6,8 +6,7 @@ import ItemProduct from "./ItemProduct";
 import ItemPack from "./ItemPack";
 
 const Items = () => {
-  const { products, packs, removeProduct, retrieveProdsInPack, removePack } =
-    useContext(CartContext);
+  const { products, packs, retrieveProdsInPack } = useContext(CartContext);
   return (
     <>
       <Box display="flex" alignItems="center">
@@ -35,17 +34,12 @@ const Items = () => {
         {packs.map((pack) => (
           <ItemPack
             key={pack.id}
-            remove={removePack}
             pack={pack}
             retrieveItems={retrieveProdsInPack}
           />
         ))}
         {products.map((product) => (
-          <ItemProduct
-            key={product.id}
-            product={product}
-            remove={removeProduct}
-          />
+          <ItemProduct key={product.id} product={product} />
         ))}
       </Box>
     </>

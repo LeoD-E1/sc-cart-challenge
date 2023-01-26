@@ -2,7 +2,7 @@ import React, { ChangeEvent, useContext } from "react";
 import Input from "@mui/material/Input";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
-import { CartContext } from "../context/CartContext";
+import { CartContext } from "../../context/CartContext";
 
 interface QuantityInterface {
   element: any;
