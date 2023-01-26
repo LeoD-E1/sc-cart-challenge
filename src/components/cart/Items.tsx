@@ -20,8 +20,18 @@ const Items = () => {
         sx={{
           overflowY: "auto",
           maxHeight: "70vh",
+          height: "100%",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
+        {packs.length + products.length === 0 && (
+          <h1 style={{ fontFamily: "Open sans", color: "#999" }}>
+            You have no items in your cart
+          </h1>
+        )}
         {packs.map((pack) => (
           <ItemPack
             key={pack.id}

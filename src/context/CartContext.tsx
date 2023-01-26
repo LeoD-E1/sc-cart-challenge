@@ -60,8 +60,33 @@ const CartProvider = (props: any) => {
     return retrieved;
   };
 
-  const editQuantityProduct = (productId: number): void => {};
-  const editQuantityPack = (packId: number): void => {};
+  const editQuantityProduct = (productId: number, quantity: number): void => {
+    // cambiar la cantidad del product cuyo id sea productID
+    setProducts(
+      products.map((p) => {
+        if (p.id === productId) {
+          return {
+            ...p,
+            quantity,
+          };
+        }
+        return p;
+      })
+    );
+  };
+  const editQuantityPack = (packId: number, quantity: number): void => {
+    setPacks(
+      packs.map((p) => {
+        if (p.id === packId) {
+          return {
+            ...p,
+            quantity,
+          };
+        }
+        return p;
+      })
+    );
+  };
 
   return (
     <CartContext.Provider
@@ -71,6 +96,8 @@ const CartProvider = (props: any) => {
         removePack,
         removeProduct,
         retrieveProdsInPack,
+        editQuantityProduct,
+        editQuantityPack,
       }}
     >
       {props.children}

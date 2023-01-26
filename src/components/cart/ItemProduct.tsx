@@ -5,6 +5,7 @@ import { Product } from "../../types/cart";
 import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import RemoveItem from "./RemoveItem";
+import EditQuantity from "../EditQuantity";
 
 type ItemProductType = {
   key: number;
@@ -46,9 +47,9 @@ const ItemProduct: React.FC<ItemProductType> = ({ product, remove }) => {
           >
             {product.name}
           </Typography>
-          <Typography fontSize="16px" fontWeight={700} fontFamily="Open sans">
-            Quantity: {product.quantity}
-          </Typography>
+
+          <EditQuantity element={product} type="product" />
+
           <Box display="flex">
             <RemoveItem icon type="product" element={product} />
           </Box>

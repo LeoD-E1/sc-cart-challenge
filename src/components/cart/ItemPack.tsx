@@ -5,6 +5,7 @@ import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import RemoveItem from "./RemoveItem";
 import EditItem from "./EditItem";
+import EditQuantity from "../EditQuantity";
 
 type ItemPackType = {
   key: number;
@@ -70,9 +71,7 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
           >
             {pack.name}
           </Typography>
-          <Typography fontSize="16px" fontWeight={700}>
-            Quantity: {pack.quantity}
-          </Typography>
+          <EditQuantity type="pack" element={pack} />
           <ul>
             {products.map((product: Product) => (
               <li key={product.id} style={{ display: "flex" }}>
