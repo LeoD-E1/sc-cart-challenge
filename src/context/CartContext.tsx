@@ -8,15 +8,6 @@ export const CartContext = createContext<CartContextType>(
 const CartProvider = (props: any) => {
   const [products, setProducts] = useState<Product[]>([
     {
-      id: 0,
-      quantity: 1,
-      name: "T-shirt",
-      price: 13,
-      img_url:
-        "https://images.pexels.com/photos/13111289/pexels-photo-13111289.jpeg?auto=compress&cs=tinysrgb&w=1600",
-      category: ["pink", "xl", "coton"],
-    },
-    {
       id: 1,
       quantity: 1,
       name: "Camera ESX-342",
@@ -49,8 +40,8 @@ const CartProvider = (props: any) => {
     {
       id: 0,
       quantity: 1,
-      name: "My Christmas Package",
-      product_ids: [2, 3, 0, 1],
+      name: "My Christmas Pack",
+      product_ids: [2, 3, 1],
     },
   ]);
 
@@ -63,17 +54,9 @@ const CartProvider = (props: any) => {
   };
 
   const retrieveProdsInPack = (ids: number[]) => {
-    console.log(
-      "🚀 ~ file: CartContext.tsx:67 ~ retrieveProdsInPack ~ ids",
-      ids
-    );
     const retrieved = products.filter((p) => {
       return ids.includes(p.id);
     });
-    console.log(
-      "🚀 ~ file: CartContext.tsx:68 ~ retrieveProdsInPack ~ retrieved",
-      retrieved
-    );
     return retrieved;
   };
 

@@ -4,8 +4,7 @@ import CardMedia from "@mui/material/CardMedia";
 import { Product } from "../../types/cart";
 import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
-import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
-import Button from "@mui/material/Button";
+import RemoveItem from "./RemoveItem";
 
 type ItemProductType = {
   key: number;
@@ -39,26 +38,19 @@ const ItemProduct: React.FC<ItemProductType> = ({ product, remove }) => {
             justifyContent: "space-between",
           }}
         >
-          <Typography fontSize="18px" fontWeight={700} lineHeight="24px">
+          <Typography
+            fontSize="18px"
+            fontWeight={700}
+            lineHeight="24px"
+            fontFamily="Open sans"
+          >
             {product.name}
           </Typography>
-          <Typography fontSize="16px" fontWeight={700}>
+          <Typography fontSize="16px" fontWeight={700} fontFamily="Open sans">
             Quantity: {product.quantity}
           </Typography>
-          {/* <ul>
-            {product.category.map((cat) => (
-              <li key={cat}>{cat}</li>
-            ))}
-          </ul> */}
           <Box display="flex">
-            <Button size="small" onClick={() => remove(product)}>
-              <DeleteForeverOutlinedIcon
-                sx={{ width: "16px", height: "16px" }}
-              />
-              <Typography fontSize="12px" fontWeight={600}>
-                remove
-              </Typography>
-            </Button>
+            <RemoveItem icon type="product" element={product} />
           </Box>
         </CardContent>
       </Box>
@@ -68,10 +60,11 @@ const ItemProduct: React.FC<ItemProductType> = ({ product, remove }) => {
           fontWeight={700}
           lineHeight="16px"
           color="#091625"
+          fontFamily="Open sans"
         >
           ${product.price}
         </Typography>
-        <Typography fontSize="16px" fontWeight={700}>
+        <Typography fontSize="16px" fontWeight={700} fontFamily="Open sans">
           Total: ${product.quantity * product.price}
         </Typography>
       </Box>

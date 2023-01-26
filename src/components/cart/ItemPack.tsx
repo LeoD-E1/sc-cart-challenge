@@ -3,8 +3,8 @@ import Box from "@mui/material/Box";
 import { Pack, Product } from "../../types/cart";
 import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
-import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
-import Button from "@mui/material/Button";
+import RemoveItem from "./RemoveItem";
+import EditItem from "./EditItem";
 
 type ItemPackType = {
   key: number;
@@ -19,7 +19,6 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
     (acc: number, curr: Product) => acc + curr.price,
     0
   );
-  console.log("🚀 ~ file: ItemPack.tsx:19 ~ price", price);
 
   const retrieve = (ids: number[]) => {
     const products: Product[] = retrieveItems(ids);
@@ -42,7 +41,7 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
       <Box display="flex">
         <Box
           component="div"
-          sx={{ width: 120, height: 120, backgroundColor: "#999" }}
+          sx={{ width: 120, height: 120, backgroundColor: "#E6E8E9" }}
         >
           {products.map((product) => (
             <img
@@ -50,6 +49,7 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
               src={product.img_url}
               alt=""
               style={{ width: "40px" }}
+              loading="lazy"
             />
           ))}
         </Box>
@@ -61,7 +61,13 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
             justifyContent: "space-between",
           }}
         >
-          <Typography fontSize="18px" fontWeight={700} lineHeight="24px">
+          <Typography
+            fontSize="18px"
+            fontWeight={700}
+            lineHeight="24px"
+            fontFamily="Open sans"
+            fontStyle="normal"
+          >
             {pack.name}
           </Typography>
           <Typography fontSize="16px" fontWeight={700}>
@@ -69,35 +75,43 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, remove, retrieveItems }) => {
           </Typography>
           <ul>
             {products.map((product: Product) => (
-              <li key={product.id}>
-                {product.category.map((category: string) => (
-                  <span key={category}>{category.concat(", ")}</span>
-                ))}
+              <li key={product.id} style={{ display: "flex" }}>
+                <Typography fontSize="14px" fontWeight={600} lineHeight="24px">
+                  {product.name}{" "}
+                </Typography>
+                <Box marginLeft={1} sx={{ color: "#A8AEB3" }}>
+                  <span>(</span>
+                  {product.category.map((category: string) => (
+                    <span key={category}>{category.concat(" ")}</span>
+                  ))}
+                  <span>)</span>
+                </Box>
               </li>
             ))}
           </ul>
-          <Box display="flex">
-            <Button size="small" onClick={() => remove(pack)}>
-              <DeleteForeverOutlinedIcon
-                sx={{ width: "16px", height: "16px" }}
-              />
-              <Typography fontSize="12px" fontWeight={600}>
-                remove
-              </Typography>
-            </Button>
+          <Box display="flex" alignItems="center">
+            <EditItem />
+            <Typography>|</Typography>
+            <RemoveItem type="pack" element={pack} />
           </Box>
         </CardContent>
       </Box>
-      <Box display="flex" flexDirection="column" alignItems="end">
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="end"
+        lineHeight={"16px"}
+      >
         <Typography
           fontSize="18px"
           fontWeight={700}
           lineHeight="16px"
           color="#091625"
+          marginBottom={1}
         >
           ${price}
         </Typography>
-        <Typography fontSize="16px" fontWeight={700}>
+        <Typography fontSize="18px" fontWeight={700} lineHeight={"16px"}>
           Total: ${pack.quantity * price}
         </Typography>
       </Box>
