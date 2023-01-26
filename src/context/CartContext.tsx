@@ -36,7 +36,7 @@ const CartProvider = (props: any) => {
     },
     {
       id: 3,
-      quantity: 1,
+      quantity: 3,
       name: "Titanium watch",
       price: 1300,
       img_url:
@@ -55,8 +55,14 @@ const CartProvider = (props: any) => {
     },
   ]);
 
-  const removeProduct = (product: Product): void => {};
-  const removePack = (product: Pack): void => {};
+  const removeProduct = (product: Product): void => {
+    setProducts(products.filter((p) => p.id !== product.id));
+  };
+
+  const removePack = (pack: Pack): void => {
+    setPacks(packs.filter((p) => p.id !== pack.id));
+  };
+
   const editQuantityProduct = (productId: number): void => {};
   const editQuantityPack = (packId: number): void => {};
 

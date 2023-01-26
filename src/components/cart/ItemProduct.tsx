@@ -5,13 +5,15 @@ import { Product } from "../../types/cart";
 import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
+import Button from "@mui/material/Button";
 
 type ItemProductType = {
   key: number;
+  remove: (product: Product) => void;
   product: Product;
 };
 
-const ItemProduct: React.FC<ItemProductType> = ({ product }) => {
+const ItemProduct: React.FC<ItemProductType> = ({ product, remove }) => {
   return (
     <Box
       width="100%"
@@ -49,10 +51,14 @@ const ItemProduct: React.FC<ItemProductType> = ({ product }) => {
             ))}
           </ul> */}
           <Box display="flex">
-            <DeleteForeverOutlinedIcon sx={{ width: "16px", height: "16px" }} />
-            <Typography fontSize="12px" fontWeight={600}>
-              remove
-            </Typography>
+            <Button size="small" onClick={() => remove(product)}>
+              <DeleteForeverOutlinedIcon
+                sx={{ width: "16px", height: "16px" }}
+              />
+              <Typography fontSize="12px" fontWeight={600}>
+                remove
+              </Typography>
+            </Button>
           </Box>
         </CardContent>
       </Box>

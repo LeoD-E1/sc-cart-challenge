@@ -5,7 +5,7 @@ import Box from "@mui/material/Box";
 import ItemProduct from "./ItemProduct";
 
 const Items = () => {
-  const { products, packs } = useContext(CartContext);
+  const { products, packs, removeProduct } = useContext(CartContext);
   return (
     <>
       <Box display="flex" alignItems="center">
@@ -21,7 +21,11 @@ const Items = () => {
         }}
       >
         {products.map((product) => (
-          <ItemProduct key={product.id} product={product} />
+          <ItemProduct
+            key={product.id}
+            product={product}
+            remove={removeProduct}
+          />
         ))}
       </Box>
     </>
