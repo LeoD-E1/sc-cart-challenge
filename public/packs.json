@@ -3,6 +3,23 @@
     "id": 0,
     "quantity": 1,
     "name": "My Christmas Pack",
-    "product_ids": [2, 3, 1]
+    "products": [
+      {
+        "id": 2,
+        "quantity": 1,
+        "name": "Camera ESX-342 Lens",
+        "price": 150,
+        "img_url": "https://images.pexels.com/photos/3602258/pexels-photo-3602258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "category": ["black", "titanium"]
+      },
+      {
+        "id": 3,
+        "quantity": 1,
+        "name": "Titanium watch",
+        "price": 1300,
+        "img_url": "https://images.pexels.com/photos/2783873/pexels-photo-2783873.jpeg",
+        "category": ["gray", "titanium"]
+      }
+    ]
   }
 ]

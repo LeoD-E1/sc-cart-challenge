@@ -10,28 +10,16 @@ import { CartContext } from "../../context/CartContext";
 
 type ItemPackType = {
   key: number;
-  retrieveItems: (ids: number[]) => Product[];
   pack: Pack;
 };
 
-const ItemPack: React.FC<ItemPackType> = ({ pack, retrieveItems }) => {
-  const { products } = useContext(CartContext);
-  const [productsInPack, setProductsInPack] = useState<Product[]>([]);
-  const productsPrice = productsInPack.reduce(
+const ItemPack: React.FC<ItemPackType> = ({ pack }) => {
+  const productsPrice = pack.products.reduce(
     (acc: number, curr: Product) => acc + curr.price,
     0
   );
 
-  const totalPrice = productsPrice * pack?.quantity;
-
-  const retrieve = (ids: number[]) => {
-    const productsRetrieved: Product[] = retrieveItems(ids);
-    setProductsInPack(productsRetrieved);
-  };
-
-  useEffect(() => {
-    retrieve(pack.product_ids);
-  }, []);
+  const totalPrice = productsPrice * pack.quantity;
 
   return (
     <Box
@@ -47,7 +35,7 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, retrieveItems }) => {
           component="div"
           sx={{ width: 120, height: 120, backgroundColor: "#E6E8E9" }}
         >
-          {productsInPack.map((product) => (
+          {pack.products.map((product) => (
             <img
               key={product.id}
               src={product.img_url}
@@ -76,7 +64,7 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, retrieveItems }) => {
           </Typography>
           <EditQuantity type="pack" element={pack} />
           <ul>
-            {productsInPack.map((product: Product) => (
+            {pack.products.map((product: Product) => (
               <li key={product.id} style={{ display: "flex" }}>
                 <Typography fontSize="14px" fontWeight={600} lineHeight="24px">
                   {product.name}{" "}

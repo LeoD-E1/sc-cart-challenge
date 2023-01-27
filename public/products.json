@@ -3,7 +3,7 @@
     "id": 1,
     "quantity": 1,
     "name": "Camera ESX-342",
-    "price": 130,
+    "price": 1,
     "img_url": "https://images.pexels.com/photos/90946/pexels-photo-90946.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "category": ["black", "professional", "titanium"]
   },
@@ -11,7 +11,7 @@
     "id": 2,
     "quantity": 1,
     "name": "Camera ESX-342 Lens",
-    "price": 150,
+    "price": 10,
     "img_url": "https://images.pexels.com/photos/3602258/pexels-photo-3602258.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     "category": ["black", "titanium"]
   },
@@ -19,7 +19,7 @@
     "id": 3,
     "quantity": 3,
     "name": "Titanium watch",
-    "price": 1300,
+    "price": 20,
     "img_url": "https://images.pexels.com/photos/2783873/pexels-photo-2783873.jpeg",
     "category": ["gray", "titanium"]
   }

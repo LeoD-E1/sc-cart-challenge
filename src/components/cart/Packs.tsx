@@ -5,7 +5,7 @@ import ItemPack from "./ItemPack";
 import Box from "@mui/material/Box";
 
 const Packs = () => {
-  const { packs, fetchPacks, retrieveProdsInPack } = useContext(CartContext);
+  const { packs, fetchPacks } = useContext(CartContext);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
@@ -39,13 +39,7 @@ const Packs = () => {
           An error has occurred!
         </h1>
       ) : (
-        packs.map((pack) => (
-          <ItemPack
-            key={pack.id}
-            pack={pack}
-            retrieveItems={retrieveProdsInPack}
-          />
-        ))
+        packs.map((pack) => <ItemPack key={pack.id} pack={pack} />)
       )}
     </>
   );

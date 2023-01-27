@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import { CartContextType, Product, Pack } from "../types/cart";
 
 export const CartContext = createContext<CartContextType>(
@@ -8,6 +8,25 @@ export const CartContext = createContext<CartContextType>(
 const CartProvider = (props: any) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [packs, setPacks] = useState<Pack[]>([]);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const calculateTotalPrice = () => {
+    const totalArrayPrice = (arr: Product[]): number => {
+      return arr.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    };
+    const totalPriceProducts = totalArrayPrice(products);
+    const totalPricePacks = packs.map((pack) => totalArrayPrice(pack.products));
+
+    console.log(
+      "🚀 ~ file: CartContext.tsx:21 ~ calculateTotalPrice ~ totalPricePacks",
+      totalPricePacks
+    );
+    // const totalPrice = totalPriceProducts + totalPricePacks;
+  };
+
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [products, packs]);
 
   const fetchProducts = async () => {
     try {

@@ -10,7 +10,7 @@ export interface Product {
 export interface Pack {
   id: number;
   name: string;
-  product_ids: number[];
+  products: Product[];
   quantity: number;
 }
 

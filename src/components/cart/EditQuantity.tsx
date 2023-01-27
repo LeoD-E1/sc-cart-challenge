@@ -30,8 +30,6 @@ const EditQuantity: React.FC<QuantityInterface> = ({ element, type }) => {
           border: "none",
           borderBottom: "1px solid #333",
           outline: "none",
-          appearance: "textfield",
-          margin: 0,
           background: "#fff",
         }}
         defaultValue={element?.quantity}
