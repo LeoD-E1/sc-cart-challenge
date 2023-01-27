@@ -61,7 +61,6 @@ const CartProvider = (props: any) => {
   };
 
   const editQuantityProduct = (productId: number, quantity: number): void => {
-    // cambiar la cantidad del product cuyo id sea productID
     setProducts(
       products.map((p) => {
         if (p.id === productId) {

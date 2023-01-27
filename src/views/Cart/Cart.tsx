@@ -1,14 +1,13 @@
-import Container from "@mui/material/Container";
 import Navbar from "../../components/navbar/Navbar";
 import Categories from "../../components/cart/Categories";
-import ItemsWrapper from "../../components/cart/ItemsWrapper";
+import Items from "../../components/cart/Items";
 
 const Cart = () => {
   return (
     <>
       <Navbar />
       <Categories />
-      <ItemsWrapper />
+      <Items />
     </>
   );
 };

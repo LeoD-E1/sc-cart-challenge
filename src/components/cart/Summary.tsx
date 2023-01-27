@@ -1,23 +1,57 @@
 import Typography from "@mui/material/Typography";
+import { Box } from "@mui/system";
+import { Pack, Product } from "../../types/cart";
+import Button from "@mui/material/Button";
+interface SummaryInterface {
+  packs: Pack[];
+  products: Product[];
+  retrieve: (ids: number[]) => Product[];
+}
 
-const Summary = () => {
+const Summary: React.FC<SummaryInterface> = ({ products, packs, retrieve }) => {
   return (
     <>
-      <Typography fontSize={"24px"} fontWeight={"700"}>
+      <Typography fontSize={"24px"} fontWeight={"700"} fontFamily="Open sans">
         Order Summary
       </Typography>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "50vh",
-          backgroundColor: "#999",
-          width: "100%",
-        }}
+      <Box
+        paddingY={4}
+        borderBottom="1px solid #6B737C"
+        width={"100%"}
+        display="flex"
+        justifyContent={"space-between"}
+        alignItems="center"
       >
-        <h1>Summary</h1>
-      </div>
+        <Typography fontSize={"16px"} fontFamily="Open sans" color="#6B737C">
+          Number of items
+        </Typography>
+        <Typography fontSize={"16px"} fontFamily="Open sans" color="#6B737C">
+          {packs.length + products.length}
+        </Typography>
+      </Box>
+
+      <Box
+        paddingY={3}
+        width={"100%"}
+        display="flex"
+        justifyContent={"space-between"}
+        alignItems="center"
+      >
+        <Typography fontSize={"16px"} fontFamily="Open sans" color="#091625">
+          Total
+        </Typography>
+        <Typography
+          fontSize={"24px"}
+          fontFamily="Open sans"
+          color="#091625"
+          fontWeight={700}
+          lineHeight={"16px"}
+        >
+          $3000
+        </Typography>
+      </Box>
+
+      <Box></Box>
     </>
   );
 };

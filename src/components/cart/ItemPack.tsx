@@ -15,10 +15,12 @@ type ItemPackType = {
 
 const ItemPack: React.FC<ItemPackType> = ({ pack, retrieveItems }) => {
   const [products, setProducts] = useState<Product[]>([]);
-  const price = products.reduce(
+  const productsPrice = products.reduce(
     (acc: number, curr: Product) => acc + curr.price,
     0
   );
+
+  const totalPrice = productsPrice * pack?.quantity;
 
   const retrieve = (ids: number[]) => {
     const products: Product[] = retrieveItems(ids);
@@ -107,10 +109,10 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, retrieveItems }) => {
           color="#091625"
           marginBottom={1}
         >
-          ${price}
+          ${productsPrice}
         </Typography>
         <Typography fontSize="18px" fontWeight={700} lineHeight={"16px"}>
-          Total: ${pack.quantity * price}
+          Total: ${totalPrice}
         </Typography>
       </Box>
     </Box>
