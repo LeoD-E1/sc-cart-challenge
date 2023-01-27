@@ -1,0 +1,8 @@
+[
+  {
+    "id": 0,
+    "quantity": 1,
+    "name": "My Christmas Pack",
+    "product_ids": [2, 3, 1]
+  }
+]

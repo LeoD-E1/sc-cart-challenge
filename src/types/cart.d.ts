@@ -26,4 +26,6 @@ export interface CartContextType {
   retrieveProdsInPack: (ids: number[]) => Product[];
   editQuantityProduct: (id: number, quantity: number) => void;
   editQuantityPack: (id: number, quantity: number) => void;
+  fetchProducts: () => Promise<void>;
+  fetchPacks: () => Promise<void>;
 }

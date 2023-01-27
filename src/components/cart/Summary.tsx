@@ -1,7 +1,6 @@
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import { Pack, Product } from "../../types/cart";
-import Button from "@mui/material/Button";
 interface SummaryInterface {
   packs: Pack[];
   products: Product[];
@@ -38,7 +37,7 @@ const Summary: React.FC<SummaryInterface> = ({ products, packs, retrieve }) => {
         alignItems="center"
       >
         <Typography fontSize={"16px"} fontFamily="Open sans" color="#091625">
-          Total
+          Total:
         </Typography>
         <Typography
           fontSize={"24px"}

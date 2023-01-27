@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import Box from "@mui/material/Box";
 import { Pack, Product } from "../../types/cart";
 import CardContent from "@mui/material/CardContent";
@@ -6,6 +6,7 @@ import { Typography } from "@mui/material";
 import RemoveItem from "./RemoveItem";
 import EditItem from "./EditItem";
 import EditQuantity from "./EditQuantity";
+import { CartContext } from "../../context/CartContext";
 
 type ItemPackType = {
   key: number;
@@ -14,8 +15,9 @@ type ItemPackType = {
 };
 
 const ItemPack: React.FC<ItemPackType> = ({ pack, retrieveItems }) => {
-  const [products, setProducts] = useState<Product[]>([]);
-  const productsPrice = products.reduce(
+  const { products } = useContext(CartContext);
+  const [productsInPack, setProductsInPack] = useState<Product[]>([]);
+  const productsPrice = productsInPack.reduce(
     (acc: number, curr: Product) => acc + curr.price,
     0
   );
@@ -23,8 +25,8 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, retrieveItems }) => {
   const totalPrice = productsPrice * pack?.quantity;
 
   const retrieve = (ids: number[]) => {
-    const products: Product[] = retrieveItems(ids);
-    setProducts(products);
+    const productsRetrieved: Product[] = retrieveItems(ids);
+    setProductsInPack(productsRetrieved);
   };
 
   useEffect(() => {
@@ -45,7 +47,7 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, retrieveItems }) => {
           component="div"
           sx={{ width: 120, height: 120, backgroundColor: "#E6E8E9" }}
         >
-          {products.map((product) => (
+          {productsInPack.map((product) => (
             <img
               key={product.id}
               src={product.img_url}
@@ -74,7 +76,7 @@ const ItemPack: React.FC<ItemPackType> = ({ pack, retrieveItems }) => {
           </Typography>
           <EditQuantity type="pack" element={pack} />
           <ul>
-            {products.map((product: Product) => (
+            {productsInPack.map((product: Product) => (
               <li key={product.id} style={{ display: "flex" }}>
                 <Typography fontSize="14px" fontWeight={600} lineHeight="24px">
                   {product.name}{" "}

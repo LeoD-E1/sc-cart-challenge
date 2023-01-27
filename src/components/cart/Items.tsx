@@ -2,10 +2,10 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import ItemProduct from "./ItemProduct";
-import ItemPack from "./ItemPack";
 import { Container } from "@mui/material";
 import Summary from "./Summary";
+import Products from "./Products";
+import Packs from "./Packs";
 
 const Items = () => {
   const { products, packs, retrieveProdsInPack } = useContext(CartContext);
@@ -41,21 +41,8 @@ const Items = () => {
             height: "100%",
           }}
         >
-          {packs.length + products.length === 0 && (
-            <h1 style={{ fontFamily: "Open sans", color: "#999" }}>
-              You have no items in your cart
-            </h1>
-          )}
-          {packs.map((pack) => (
-            <ItemPack
-              key={pack.id}
-              pack={pack}
-              retrieveItems={retrieveProdsInPack}
-            />
-          ))}
-          {products.map((product) => (
-            <ItemProduct key={product.id} product={product} />
-          ))}
+          <Packs />
+          <Products />
         </Box>
       </div>
       <div style={{ width: "25%" }}>
