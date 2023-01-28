@@ -65,7 +65,7 @@ const ItemProduct: React.FC<ItemProductType> = ({ product }) => {
           ${product.price}
         </Typography>
         <Typography fontSize="16px" fontWeight={700} fontFamily="Open sans">
-          Total: ${product.quantity * product.price}
+          Total: ${(product.quantity * product.price).toFixed(2)}
         </Typography>
       </Box>
     </Box>

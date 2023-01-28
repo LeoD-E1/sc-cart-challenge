@@ -102,7 +102,7 @@ const ItemPack: React.FC<ItemPackType> = ({ pack }) => {
           ${productsPrice}
         </Typography>
         <Typography fontSize="18px" fontWeight={700} lineHeight={"16px"}>
-          Total: ${totalPrice}
+          Total: ${totalPrice.toFixed(2)}
         </Typography>
       </Box>
     </Box>

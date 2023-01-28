@@ -46,7 +46,7 @@ const Summary: React.FC<SummaryInterface> = ({ products, packs, total }) => {
           fontWeight={700}
           lineHeight={"16px"}
         >
-          {total}
+          ${total.toFixed(2)}
         </Typography>
       </Box>
 
