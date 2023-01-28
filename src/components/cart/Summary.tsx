@@ -4,10 +4,10 @@ import { Pack, Product } from "../../types/cart";
 interface SummaryInterface {
   packs: Pack[];
   products: Product[];
-  retrieve: (ids: number[]) => Product[];
+  total: number;
 }
 
-const Summary: React.FC<SummaryInterface> = ({ products, packs, retrieve }) => {
+const Summary: React.FC<SummaryInterface> = ({ products, packs, total }) => {
   return (
     <>
       <Typography fontSize={"24px"} fontWeight={"700"} fontFamily="Open sans">
@@ -46,7 +46,7 @@ const Summary: React.FC<SummaryInterface> = ({ products, packs, retrieve }) => {
           fontWeight={700}
           lineHeight={"16px"}
         >
-          $3000
+          {total}
         </Typography>
       </Box>
 

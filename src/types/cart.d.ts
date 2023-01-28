@@ -21,9 +21,9 @@ export interface Cart {
 export interface CartContextType {
   products: Product[];
   packs: Pack[];
+  totalPrice: number;
   removeProduct: (product: Product) => void;
   removePack: (pack: Pack) => void;
-  retrieveProdsInPack: (ids: number[]) => Product[];
   editQuantityProduct: (id: number, quantity: number) => void;
   editQuantityPack: (id: number, quantity: number) => void;
   fetchProducts: () => Promise<void>;

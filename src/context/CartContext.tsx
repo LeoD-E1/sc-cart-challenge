@@ -1,4 +1,4 @@
-import React, { createContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 import { CartContextType, Product, Pack } from "../types/cart";
 
 export const CartContext = createContext<CartContextType>(
@@ -8,25 +8,18 @@ export const CartContext = createContext<CartContextType>(
 const CartProvider = (props: any) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [packs, setPacks] = useState<Pack[]>([]);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
 
   const calculateTotalPrice = () => {
     const totalArrayPrice = (arr: Product[]): number => {
       return arr.reduce((acc, item) => acc + item.price * item.quantity, 0);
     };
     const totalPriceProducts = totalArrayPrice(products);
-    const totalPricePacks = packs.map((pack) => totalArrayPrice(pack.products));
-
-    console.log(
-      "🚀 ~ file: CartContext.tsx:21 ~ calculateTotalPrice ~ totalPricePacks",
-      totalPricePacks
-    );
-    // const totalPrice = totalPriceProducts + totalPricePacks;
+    const totalPricePacks = packs
+      .map((pack) => totalArrayPrice(pack.products) * pack.quantity)
+      .reduce((acc, prices) => acc + prices, 0);
+    setTotalPrice(totalPriceProducts + totalPricePacks);
   };
-
-  useEffect(() => {
-    calculateTotalPrice();
-  }, [products, packs]);
 
   const fetchProducts = async () => {
     try {
@@ -56,13 +49,6 @@ const CartProvider = (props: any) => {
     setPacks(packs.filter((p) => p.id !== pack.id));
   };
 
-  const retrieveProdsInPack = (ids: number[]) => {
-    const retrieved = products.filter((p) => {
-      return ids.includes(p.id);
-    });
-    return retrieved;
-  };
-
   const editQuantityProduct = (productId: number, quantity: number): void => {
     setProducts(
       products.map((p) => {
@@ -90,14 +76,18 @@ const CartProvider = (props: any) => {
     );
   };
 
+  useEffect(() => {
+    calculateTotalPrice();
+  }, [products, packs]);
+
   return (
     <CartContext.Provider
       value={{
         products,
         packs,
+        totalPrice,
         removePack,
         removeProduct,
-        retrieveProdsInPack,
         editQuantityProduct,
         editQuantityPack,
         fetchProducts,

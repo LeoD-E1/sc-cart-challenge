@@ -8,7 +8,7 @@ import Products from "./Products";
 import Packs from "./Packs";
 
 const Items = () => {
-  const { products, packs, retrieveProdsInPack } = useContext(CartContext);
+  const { products, packs, totalPrice } = useContext(CartContext);
   return (
     <Container
       maxWidth="xl"
@@ -46,11 +46,7 @@ const Items = () => {
         </Box>
       </div>
       <div style={{ width: "25%" }}>
-        <Summary
-          products={products}
-          packs={packs}
-          retrieve={retrieveProdsInPack}
-        />
+        <Summary products={products} packs={packs} total={totalPrice} />
       </div>
     </Container>
   );
