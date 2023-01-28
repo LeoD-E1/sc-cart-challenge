@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
-import { CartContext } from "../../context/CartContext";
+import { CartContext } from "../../../context/CartContext";
 import ItemProduct from "./ItemProduct";
-import Spinner from "../spinner/Spinner";
+import Spinner from "../../spinner/Spinner";
 import Box from "@mui/material/Box";
 
 const Products = () => {

@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from "react";
-import { CartContext } from "../../context/CartContext";
-import Spinner from "../spinner/Spinner";
+import { CartContext } from "../../../context/CartContext";
+import Spinner from "../../spinner/Spinner";
 import ItemPack from "./ItemPack";
 import Box from "@mui/material/Box";
 

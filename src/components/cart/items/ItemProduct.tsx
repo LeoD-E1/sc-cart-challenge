@@ -1,7 +1,7 @@
 import React from "react";
 import Box from "@mui/material/Box";
 import CardMedia from "@mui/material/CardMedia";
-import { Product } from "../../types/cart";
+import { Product } from "../../../types/cart";
 import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import RemoveItem from "./RemoveItem";

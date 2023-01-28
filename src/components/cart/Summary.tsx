@@ -1,6 +1,8 @@
 import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import { Pack, Product } from "../../types/cart";
+import ButtonSummary from "./summary/Button";
+
 interface SummaryInterface {
   packs: Pack[];
   products: Product[];
@@ -50,7 +52,25 @@ const Summary: React.FC<SummaryInterface> = ({ products, packs, total }) => {
         </Typography>
       </Box>
 
-      <Box></Box>
+      <Box
+        display={"flex"}
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        gap="10px"
+      >
+        <ButtonSummary
+          background="#3A4451"
+          border="#3A4451"
+          title="Proceed to Checkout"
+        />
+        <ButtonSummary
+          background="#fff"
+          border="#3A4451"
+          title="Continue shopping"
+          color="#3A4451"
+        />
+      </Box>
     </>
   );
 };

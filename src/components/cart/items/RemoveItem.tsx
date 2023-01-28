@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { CartContext } from "../../context/CartContext";
-import { Pack, Product } from "../../types/cart";
+import { CartContext } from "../../../context/CartContext";
+import { Pack, Product } from "../../../types/cart";
 import DeleteForeverOutlinedIcon from "@mui/icons-material/DeleteForeverOutlined";
 import Button from "@mui/material/Button";
 import { Typography } from "@mui/material";

@@ -1,12 +1,11 @@
 import React, { useEffect, useState, useContext } from "react";
 import Box from "@mui/material/Box";
-import { Pack, Product } from "../../types/cart";
+import { Pack, Product } from "../../../types/cart";
 import CardContent from "@mui/material/CardContent";
 import { Typography } from "@mui/material";
 import RemoveItem from "./RemoveItem";
 import EditItem from "./EditItem";
 import EditQuantity from "./EditQuantity";
-import { CartContext } from "../../context/CartContext";
 
 type ItemPackType = {
   key: number;

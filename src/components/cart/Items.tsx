@@ -4,8 +4,8 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { Container } from "@mui/material";
 import Summary from "./Summary";
-import Products from "./Products";
-import Packs from "./Packs";
+import Products from "./items/Products";
+import Packs from "./items/Packs";
 
 const Items = () => {
   const { products, packs, totalPrice } = useContext(CartContext);
