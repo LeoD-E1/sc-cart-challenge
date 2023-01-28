@@ -28,7 +28,7 @@ const AlsoLike = () => {
   }, []);
 
   return (
-    <Container maxWidth="xl">
+    <Container maxWidth="xl" sx={{ marginBottom: 15 }}>
       <Typography
         fontSize={"24px"}
         fontWeight={"700"}
