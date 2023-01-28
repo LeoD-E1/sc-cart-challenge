@@ -9,6 +9,7 @@ import Packs from "./items/Packs";
 
 const Items = () => {
   const { products, packs, totalPrice } = useContext(CartContext);
+  const totalItems = products.length + packs.length;
   return (
     <Container
       maxWidth="xl"
@@ -31,7 +32,7 @@ const Items = () => {
           </Typography>
           <Typography fontFamily="Open sans" color="#999">
             {" "}
-            ({products.length + packs.length})
+            ({totalItems})
           </Typography>
         </Box>
         <Box
@@ -46,7 +47,7 @@ const Items = () => {
         </Box>
       </div>
       <div style={{ width: "25%" }}>
-        <Summary products={products} packs={packs} total={totalPrice} />
+        <Summary totalItems={totalItems} total={totalPrice} />
       </div>
     </Container>
   );

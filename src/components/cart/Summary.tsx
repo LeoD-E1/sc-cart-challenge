@@ -4,12 +4,11 @@ import { Pack, Product } from "../../types/cart";
 import ButtonSummary from "./summary/Button";
 
 interface SummaryInterface {
-  packs: Pack[];
-  products: Product[];
   total: number;
+  totalItems: number;
 }
 
-const Summary: React.FC<SummaryInterface> = ({ products, packs, total }) => {
+const Summary: React.FC<SummaryInterface> = ({ totalItems, total }) => {
   return (
     <>
       <Typography fontSize={"24px"} fontWeight={"700"} fontFamily="Open sans">
@@ -27,7 +26,7 @@ const Summary: React.FC<SummaryInterface> = ({ products, packs, total }) => {
           Number of items
         </Typography>
         <Typography fontSize={"16px"} fontFamily="Open sans" color="#6B737C">
-          {packs.length + products.length}
+          {totalItems}
         </Typography>
       </Box>
 

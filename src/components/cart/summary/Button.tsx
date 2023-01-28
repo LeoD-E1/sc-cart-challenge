@@ -18,6 +18,7 @@ const ButtonSummary: React.FC<ButtonSumm> = ({
   return (
     <Button
       sx={{
+        ":hover": { color: border },
         background: background,
         border: `1px solid ${border}`,
         padding: "12px 24px",

@@ -1,0 +1,10 @@
+.prod-also-like-container {
+  display: grid;
+  gap: 1rem;
+  grid-auto-rows: 22rem;
+  grid-template-columns: repeat(auto-fill, minmax(336px, 1fr));
+}
+
+.item {
+  background-color: #e6e8e9;
+}

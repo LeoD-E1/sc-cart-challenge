@@ -22,5 +22,13 @@
     "price": 20,
     "img_url": "https://images.pexels.com/photos/2783873/pexels-photo-2783873.jpeg",
     "category": ["gray", "titanium"]
+  },
+  {
+    "id": 4,
+    "quantity": 1,
+    "name": "Iphone 14 XL",
+    "price": 1200,
+    "img_url": "https://images.pexels.com/photos/3707744/pexels-photo-3707744.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "category": ["gray", "titanium"]
   }
 ]

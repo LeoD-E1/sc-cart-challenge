@@ -1,5 +1,4 @@
-import React, { ChangeEvent, useContext } from "react";
-import Input from "@mui/material/Input";
+import React, { useContext } from "react";
 import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import { CartContext } from "../../../context/CartContext";
@@ -31,6 +30,7 @@ const EditQuantity: React.FC<QuantityInterface> = ({ element, type }) => {
           borderBottom: "1px solid #333",
           outline: "none",
           background: "#fff",
+          fontFamily: "Open sans",
         }}
         defaultValue={element?.quantity}
         onChange={handleChange}
