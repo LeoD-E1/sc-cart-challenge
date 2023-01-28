@@ -27,7 +27,6 @@ const Footer = () => {
           display: "flex",
           justifyContent: "space-between",
           flexDirection: "column",
-          backgroundColor: "#f00",
           height: "100%",
         }}
       >
@@ -87,11 +86,7 @@ const Footer = () => {
             ))}
           </div>
         </Box>
-        <Box
-          display="flex"
-          justifyContent="space-between"
-          sx={{ background: "#ff0" }}
-        >
+        <Box display="flex" justifyContent="space-between">
           <Typography fontWeight={400} fontFamily="Open sans" fontSize={"14px"}>
             © 2022 Customer Products. All rights reserved.
           </Typography>
