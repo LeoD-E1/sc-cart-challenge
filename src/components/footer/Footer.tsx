@@ -87,7 +87,12 @@ const Footer = () => {
           </div>
         </Box>
         <Box display="flex" justifyContent="space-between">
-          <Typography fontWeight={400} fontFamily="Open sans" fontSize={"14px"}>
+          <Typography
+            fontWeight={400}
+            fontFamily="Open sans"
+            fontSize={"14px"}
+            color="#6B737C"
+          >
             © 2022 Customer Products. All rights reserved.
           </Typography>
         </Box>
